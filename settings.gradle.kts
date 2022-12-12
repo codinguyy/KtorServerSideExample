@@ -1,0 +1,1 @@
+rootProject.name = "com.codinguyy.ktor-hello-world"
