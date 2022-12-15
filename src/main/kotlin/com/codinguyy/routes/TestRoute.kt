@@ -24,8 +24,11 @@ private val jokes = listOf(
 
 private val pickuplines = listOf(
     Jokes("Sag mir deinen Namen und ich sage dir wie du heisst"),
+)
 
-
+private val selfcare = listOf(
+    Jokes("Nimm dich selber nicht zu ernst, verstehe Spass und lache ueber dich selbst"),
+    Jokes("Sei nicht so streng mit dir selbst"),
 )
 
 fun Route.randomJoke() {
@@ -39,6 +42,15 @@ fun Route.randomJoke() {
 
 fun Route.randomPickupline() {
     get("/pickupline") {
+        call.respond(
+            HttpStatusCode.OK,
+            pickuplines.random()
+        )
+    }
+}
+
+fun Route.randomSelfcareSayings() {
+    get("/selfcare") {
         call.respond(
             HttpStatusCode.OK,
             pickuplines.random()
